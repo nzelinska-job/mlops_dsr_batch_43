@@ -40,10 +40,6 @@ def download_artifact():
     artifact.download(root=MODELS_DIR)
 
     
-download_artifact()
-
-
-
 def get_raw_model() -> ResNet:
     """Here we create a model with the same architecture as the one that we have on Kaggle, but without any weights"""
     architecture = resnet18(weights=None)
@@ -71,6 +67,8 @@ def load_model() -> ResNet:
     model.eval()
     return model
 
+live_resnet18 = load_model()
+print(live_resnet18)
 
 def load_transforms() -> transforms.Compose:
     return transforms.Compose([
